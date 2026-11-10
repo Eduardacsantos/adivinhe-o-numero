@@ -1,0 +1,21 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir se os arquivos do jogo existem
+        run: |
+          for f in index.html style.css script.js README.md LICENSE; do
+            test -f "$f" || { echo "Faltando: $f"; exit 1; }
+          done
+
+      - name: Validar a sintaxe do JavaScript
+        run: node --check script.js
