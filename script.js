@@ -1,5 +1,6 @@
 let secreto = sortear();
 let tentativas = 0;
+const MAX_TENTATIVAS = 7;
 
 const form = document.getElementById("form");
 const chute = document.getElementById("chute");
@@ -7,6 +8,8 @@ const mensagem = document.getElementById("mensagem");
 const contador = document.getElementById("tentativas");
 const btnChutar = document.getElementById("btn-chutar");
 const btnNovo = document.getElementById("btn-novo");
+
+document.getElementById("max").textContent = MAX_TENTATIVAS;
 
 function sortear() {
   return Math.floor(Math.random() * 101);
