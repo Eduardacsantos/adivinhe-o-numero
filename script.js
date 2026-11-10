@@ -1,5 +1,6 @@
 let secreto = sortear();
 let tentativas = 0;
+const MAX_TENTATIVAS = 7;
 
 const form = document.getElementById("form");
 const chute = document.getElementById("chute");
@@ -7,6 +8,9 @@ const mensagem = document.getElementById("mensagem");
 const contador = document.getElementById("tentativas");
 const btnChutar = document.getElementById("btn-chutar");
 const btnNovo = document.getElementById("btn-novo");
+const btnDica = document.getElementById("btn-dica");
+
+document.getElementById("max").textContent = MAX_TENTATIVAS;
 
 function sortear() {
   return Math.floor(Math.random() * 101);
@@ -29,6 +33,13 @@ form.addEventListener("submit", (e) => {
     chute.disabled = true;
     btnChutar.disabled = true;
     btnNovo.hidden = false;
+    btnDica.disabled = true;
+  } else if (tentativas >= MAX_TENTATIVAS) {
+    mensagem.textContent = `Fim de jogo! O número era ${secreto} 😿`;
+    chute.disabled = true;
+    btnChutar.disabled = true;
+    btnNovo.hidden = false;
+    btnDica.disabled = true;
   } else {
     mensagem.textContent = valor < secreto ? "É maior! ⬆️" : "É menor! ⬇️";
   }
@@ -45,6 +56,7 @@ btnNovo.addEventListener("click", () => {
   chute.disabled = false;
   btnChutar.disabled = false;
   btnNovo.hidden = true;
+  btnDica.disabled = false;
   chute.focus();
 });
 
@@ -70,7 +82,7 @@ function listaDeDicas() {
   ];
 }
 
-document.getElementById("btn-dica").addEventListener("click", () => {
+btnDica.addEventListener("click", () => {
   const dicas = listaDeDicas();
   textoDica.textContent =
     dicasUsadas < dicas.length ? dicas[dicasUsadas++] : "Acabaram as dicas! Agora é com você 🐆";
