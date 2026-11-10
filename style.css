@@ -60,3 +60,19 @@ button:hover { background: #ad1457; }
 button[hidden] { display: none; }
 
 #mensagem { min-height: 1.5em; font-weight: bold; font-size: 1.1rem; }
+
+button.secundario { color: var(--marrom); background: var(--rosa); }
+button.secundario:hover { background: #f06292; }
+
+dialog {
+  width: min(320px, 90vw);
+  padding: 22px;
+  text-align: center;
+  color: var(--marrom);
+  background: #fff5f9;
+  border: 3px solid var(--marrom);
+  border-radius: 20px;
+  box-shadow: 0 8px 0 var(--rosa);
+}
+dialog::backdrop { background: rgba(109, 76, 65, 0.45); }
+dialog h2 { margin: 0 0 8px; color: var(--rosa-forte); }
