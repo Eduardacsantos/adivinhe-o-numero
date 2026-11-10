@@ -32,6 +32,11 @@ form.addEventListener("submit", (e) => {
     chute.disabled = true;
     btnChutar.disabled = true;
     btnNovo.hidden = false;
+  } else if (tentativas >= MAX_TENTATIVAS) {
+    mensagem.textContent = `Fim de jogo! O número era ${secreto} 😿`;
+    chute.disabled = true;
+    btnChutar.disabled = true;
+    btnNovo.hidden = false;
   } else {
     mensagem.textContent = valor < secreto ? "É maior! ⬆️" : "É menor! ⬇️";
   }
