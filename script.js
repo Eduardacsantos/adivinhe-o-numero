@@ -37,6 +37,7 @@ form.addEventListener("submit", (e) => {
 });
 
 btnNovo.addEventListener("click", () => {
+  dicasUsadas = 0;
   secreto = sortear();
   tentativas = 0;
   contador.textContent = 0;
@@ -46,3 +47,34 @@ btnNovo.addEventListener("click", () => {
   btnNovo.hidden = true;
   chute.focus();
 });
+
+// ---- Dicas (pop-up) ----
+let dicasUsadas = 0;
+const popup = document.getElementById("popup");
+const textoDica = document.getElementById("texto-dica");
+
+function ehPrimo(n) {
+  if (n < 2) return false;
+  for (let i = 2; i * i <= n; i++) if (n % i === 0) return false;
+  return true;
+}
+
+function listaDeDicas() {
+  return [
+    `O número é ${secreto % 2 === 0 ? "par" : "ímpar"}.`,
+    `O número está entre ${secreto < 50 ? "0 e 49" : "50 e 100"}.`,
+    `O número ${secreto % 5 === 0 ? "é" : "não é"} divisível por 5.`,
+    `O número ${secreto % 3 === 0 ? "é" : "não é"} divisível por 3.`,
+    `O número ${ehPrimo(secreto) ? "é" : "não é"} primo.`,
+    `O número tem ${String(secreto).length} dígito(s).`,
+  ];
+}
+
+document.getElementById("btn-dica").addEventListener("click", () => {
+  const dicas = listaDeDicas();
+  textoDica.textContent =
+    dicasUsadas < dicas.length ? dicas[dicasUsadas++] : "Acabaram as dicas! Agora é com você 🐆";
+  popup.showModal();
+});
+
+document.getElementById("btn-fechar").addEventListener("click", () => popup.close());
