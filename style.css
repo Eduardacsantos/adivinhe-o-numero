@@ -1,0 +1,62 @@
+:root {
+  --rosa-claro: #ffe4ee;
+  --rosa: #f48fb1;
+  --rosa-forte: #d81b60;
+  --marrom: #6d4c41;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  color: var(--marrom);
+  background-color: var(--rosa-claro);
+  /* manchas de onça: anel marrom com miolo rosa, repetidas */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%236d4c41' stroke-width='7' stroke-linecap='round'%3E%3Cpath d='M30 28a14 12 0 1 0 22 10'/%3E%3Cpath d='M110 88a16 13 0 1 0 24 12'/%3E%3C/g%3E%3Cg fill='%23f48fb1'%3E%3Cellipse cx='40' cy='38' rx='7' ry='6'/%3E%3Cellipse cx='121' cy='99' rx='8' ry='6'/%3E%3C/g%3E%3Cg fill='%236d4c41'%3E%3Cellipse cx='118' cy='24' rx='9' ry='6' transform='rotate(25 118 24)'/%3E%3Cellipse cx='28' cy='112' rx='8' ry='6' transform='rotate(-20 28 112)'/%3E%3Cellipse cx='78' cy='70' rx='6' ry='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px 24px;
+  text-align: center;
+  background: #fff5f9;
+  border: 3px solid var(--marrom);
+  border-radius: 20px;
+  box-shadow: 0 8px 0 var(--rosa);
+}
+
+h1 { margin: 0 0 8px; color: var(--rosa-forte); }
+
+form { display: flex; gap: 8px; margin: 16px 0; }
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid var(--rosa);
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--rosa-forte);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover { background: #ad1457; }
+button[hidden] { display: none; }
+
+#mensagem { min-height: 1.5em; font-weight: bold; font-size: 1.1rem; }

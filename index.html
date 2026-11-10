@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivinhe o Número</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Adivinhe o Número</h1>
+    <p>Pensei em um número de 1 a 100. Consegue acertar?</p>
+
+    <form id="form">
+      <input id="chute" type="number" min="1" max="100" placeholder="Seu chute" required>
+      <button id="btn-chutar" type="submit">Chutar</button>
+    </form>
+
+    <p id="mensagem" role="status"></p>
+    <p>Tentativas: <strong id="tentativas">0</strong></p>
+
+    <button id="btn-novo" type="button" hidden>Jogar de novo</button>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
