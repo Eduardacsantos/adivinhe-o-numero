@@ -9,15 +9,15 @@ const btnChutar = document.getElementById("btn-chutar");
 const btnNovo = document.getElementById("btn-novo");
 
 function sortear() {
-  return Math.floor(Math.random() * 100) + 1;
+  return Math.floor(Math.random() * 101);
 }
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const valor = Number(chute.value);
 
-  if (!Number.isInteger(valor) || valor < 1 || valor > 100) {
-    mensagem.textContent = "Digite um número inteiro de 1 a 100.";
+  if (!Number.isInteger(valor) || valor < 0 || valor > 100) {
+    mensagem.textContent = "Digite um número inteiro de 0 a 100.";
     return;
   }
 
